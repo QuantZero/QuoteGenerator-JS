@@ -5,8 +5,6 @@ const twitterBtn = document.getElementById(`twitter`)
 const newQuoteBtn = document.getElementById(`new-quote`)
 const loader = document.getElementById(`loader`)
 
-
-
 // Getting quotes from API
 let apiQuotes = [];
 
@@ -27,12 +25,12 @@ function newQuote() {
     loading()
     // Pick a random quote from the apiQUotes array
     const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length)];
+
     // Check if author field is blank and replace with `Unknown`
     if (!quote.author) {
         authorText.textContent = `Unknown`;
     } else {
         authorText.textContent = quote.author;
-
     }
     
     // Checking quote length to tdetermine style
@@ -58,7 +56,7 @@ async function getQuotes() {
         newQuote();
     } catch (error) {
         // Catching error
-    
+    getQuotes()
     }
 }
 
